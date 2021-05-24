@@ -10,15 +10,15 @@ def movie():
     datalist = []
     score = []  # 评分
     num = []  # 每个评分所统计出的电影数量
-    con = sqlite3.connect("movie.db")
+    con = sqlite3.connect("doubantop250.db")
     cur = con.cursor()
-    sql = "select * from movie250"
+    sql = "select * from doubantop250"
     data = cur.execute(sql)
     for item in data:
         datalist.append(item)
     print(datalist)
     print("cname", datalist[0][0])
-    sql = "select score,count(score) from movie250 group by score"
+    sql = "select score,count(score) from doubantop250 group by score "
     data = cur.execute(sql)
     for item in data:
         score.append(str(item[0]))
