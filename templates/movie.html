@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+    <script src="static/assets/js/echarts.min.js"></script>
   <title>高级编程：项目与实现（work01）</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
@@ -101,6 +101,13 @@
     </section><!-- End About Us Section -->
   
     <!-- ======= About Lists Section ======= -->
+
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>电影排行榜</h2>
+        </div>
     <section class="about-lists">
       <div class="container">
 
@@ -108,44 +115,118 @@
 
           <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up">
             <span>01</span>
-            <h4>Lorem Ipsum</h4>
-            <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
+            <h4>{{ movies[0][3] }}</h4>
+            <p>{{ movies[0][7] }}</p>
           </div>
 
           <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="100">
             <span>02</span>
-            <h4>Repellat Nihil</h4>
-            <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
+            <h4>{{ movies[1][3] }}</h4>
+            <p>{{ movies[1][7] }}</p>
           </div>
 
           <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="200">
             <span>03</span>
-            <h4> Ad ad velit qui</h4>
-            <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
+            <h4>{{ movies[2][3] }}</h4>
+            <p>{{ movies[2][7] }}</p>
           </div>
 
           <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="300">
             <span>04</span>
-            <h4>Repellendus molestiae</h4>
-            <p>Inventore quo sint a sint rerum. Distinctio blanditiis deserunt quod soluta quod nam mider lando casa</p>
+            <h4>{{ movies[3][3] }}</h4>
+            <p>{{ movies[3][7] }}</p>
           </div>
 
           <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="400">
             <span>05</span>
-            <h4>Sapiente Magnam</h4>
-            <p>Vitae dolorem in deleniti ipsum omnis tempore voluptatem. Qui possimus est repellendus est quibusdam</p>
+            <h4>{{ movies[4][3] }}</h4>
+            <p>{{ movies[4][7] }}</p>
           </div>
 
           <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="500">
             <span>06</span>
-            <h4>Facilis Impedit</h4>
-            <p>Quis eum numquam veniam ea voluptatibus voluptas. Excepturi aut nostrum repudiandae voluptatibus corporis sequi</p>
+            <h4>{{ movies[5][3] }}</h4>
+            <p>{{ movies[5][7] }}</p>
           </div>
 
         </div>
 
       </div>
     </section><!-- End About Lists Section -->
+
+          </div>
+    </section><!-- End Counts Section -->
+
+
+
+    {# 电影评分部分代码    #}
+
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>豆瓣电影Top250评分分布图</h2>
+        </div>
+
+        <!-- ======= Counts Section ======= -->
+    <section class="counts section-bg">
+      <div class="container">
+
+            <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+            <div id="main" style="width: 100%;height:300px"></div>
+
+
+      </div>
+    </section><!-- End Counts Section -->
+
+      </div>
+    </section><!-- End Our Team Section -->
+
+     <script type="text/javascript">
+    var dom = document.getElementById("main");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    option = {
+
+        color:['#3398DB'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right:'4%',
+            bottom:'3%',
+            containLabel:true
+        },
+        xAxis: {
+            type: 'category',
+            data: {{ score|tojson }}
+            <!--['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun','999']-->
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: {{ num }},
+                <!--[120, 20, 150, 80, 70, 110, 130,200],-->
+            barWidth:'60%',
+            type:'bar'
+        }]
+    };
+    ;
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+           </script>
+
+    {# 电影评分部分代码结束    #}
+
+
+
 
 
     <!-- ======= Our Team Section ======= -->
