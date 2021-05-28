@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="referrer" content="never">
     <script src="static/assets/js/echarts.min.js"></script>
     <title>高级编程：项目与实现（work01）</title>
     <meta content="" name="descriptison">
@@ -63,80 +62,50 @@
     </div>
 </header><!-- End Header -->
 
-{#  <main id="main">#}
-
-<!-- ======= About Us Section ======= -->
-<section id="about" class="about">
+<!-- ======= Our Team Section ======= -->
+<section id="team" class="team">
     <div class="container">
 
-        <div class="row no-gutters">
-            <div class="col-lg-6 video-box">
-                <img src="/static/assets/img/Rotten.png" class="img-fluid" alt="">
-                <a href="https://www.youtube.com/watch?v=5zIjwdSRDK4" class="venobox play-btn mb-4" data-vbtype="video"
-                   data-autoplay="true"></a>
-            </div>
-
-            <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
-
-                <div class="section-title">
-                    <h2>本期新片</h2>
-                    <p>(本期上新简介)</p>
-                </div>
-
-                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon"><i class="bx bx-fingerprint"></i></div>
-                    <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                    <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi
-                        sint occaecati cupiditate non provident</p>
-                </div>
-
-                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon"><i class="bx bx-gift"></i></div>
-                    <h4 class="title"><a href="">Nemo Enim</a></h4>
-                    <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                        praesentium voluptatum deleniti atque</p>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-</section><!-- End About Us Section -->
-
-<!-- ======= Our Portfolio Section ======= -->
-<section id="portfolio" class="portfolio section-bg">
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="section-title">
-            <h2>全部电影</h2>
-            <p>利用python，将豆瓣排行前250的电影爬取下来，利用flack库搭建前端项目，对获取到的数据进行可视化，以下是全部的电影列表，通过点击可进入源网页</p>
+            <h2>小组成员</h2>
+            <p>小组成员来自电子与信息工程学院N303B</p>
         </div>
-        <table class="table table-dark">
-            <tr>
-                <td>排名</td>
-                <td>封面</td>
-                <td>中文名称</td>
-                <td>外国名称</td>
-                <td>评分</td>
-                <td>评分人数</td>
-                <td>一句话介绍</td>
-            </tr>
-            {% for movie in movies %}
-                <tr>
-                    <td>{{ movie[0] }}</td>
-                    <td><a href={{ movie[1] }}><img style="width: 35px;" src={{ movie[2] }}></a></td>
-                    <td><a href={{ movie[1] }}>{{ movie[3] }}</a></td>
-                    <td>{{ movie[4] }}</td>
-                    <td>{{ movie[5] }}</td>
-                    <td>{{ movie[6] }}</td>
-                    <td>{{ movie[7] }}</td>
-                </tr>
-            {% endfor %}
-        </table>
+
+        <div class="row">
+
+            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="member">
+                    <div class="pic"><img src="/static/assets/img/team/member1.jpg" class="img-fluid" alt=""></div>
+                    <div class="member-info">
+                        <h4>刘恒九</h4>
+                        <span>小组长</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="member">
+                    <div class="pic"><img src="/static/assets/img/team/member2.jpg" class="img-fluid" alt=""></div>
+                    <div class="member-info">
+                        <h4>刘文军</h4>
+                        <span>组员1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="member">
+                    <div class="pic"><img src="/static/assets/img/team/member3.jpg" class="img-fluid" alt=""></div>
+                    <div class="member-info">
+                        <h4>罗志超</h4>
+                        <span>组员2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
-</section><!-- End Our Portfolio Section -->
-
+</section><!-- End Our Team Section -->
 
 <!-- ======= Footer ======= -->
 <footer id="footer">
