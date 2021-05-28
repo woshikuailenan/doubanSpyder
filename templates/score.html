@@ -183,11 +183,13 @@
             containLabel: true
         },
         xAxis: {
+            name: '评分',
             type: 'category',
             data: {{ score|tojson }}
             <!--['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun','999']-->
         },
         yAxis: {
+            name: '数量',
             type: 'value'
         },
         series: [{
