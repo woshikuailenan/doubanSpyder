@@ -56,6 +56,7 @@
                 <li><a href="/movie">当季电影</a></li>
                 <li><a href="/score">评分统计</a></li>
                 <li><a href="/keyword">关键词</a></li>
+                <li><a href="/sentimentAnalyze">情感数据分析</a></li>
                 <li><a href="/team">小组成员</a></li>
             </ul>
         </nav><!-- .nav-menu -->
@@ -123,7 +124,7 @@
             </tr>
             {% for movie in movies %}
                 <tr>
-                    <td>{{ movie[0] }}</td>
+                    <td>{{ loop.index }}</td>
                     <td><a href={{ movie[1] }}><img style="width: 35px;" src={{ movie[2] }}></a></td>
                     <td><a href={{ movie[1] }}>{{ movie[3] }}</a></td>
                     <td>{{ movie[4] }}</td>

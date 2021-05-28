@@ -58,7 +58,13 @@ def team():
     return render_template('team.html')
 
 
-# 小组成员
+# 情感分析
+@app.route("/sentimentAnalyze")
+def sentimentAnalyze():
+    return render_template('sentimentAnalyze.html')
+
+
+# 模板
 @app.route("/temp")
 def temp():
     return render_template('temp.html')
