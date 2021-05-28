@@ -60,14 +60,20 @@ def getData(baseurl):
         for item in soup.find_all('div', class_="comment"):
             # print(item)测试
             data = []  # 保存一部电影的全部信息
-            #print("item before str:",item)
+            print("item before str:",item)
             item = str(item)
-            #print("item after str:", item)
+            print("item after str:", item)
             #若评论或评论者名字为空就跳过
-            if len(re.findall(findCommentContent,item))==0 or len(re.findall(findName,item))==0 :
-                continue
+            # if len(re.findall(findCommentContent,item))==0 or len(re.findall(findName,item))==0 :
+            #     continue
             #根据正则表达式获取评论
-            comment=re.findall(findCommentContent,item)[0]
+            comment = re.findall(findCommentContent, item)[0]
+            comment=str(comment)
+            comment.replace("\n","")
+            # str1=re.findall(findCommentContent,item);
+            #
+
+
             # 根据正则表达式获取评论者名称
             name=re.findall(findName,item)[0][1]
             data.append(comment)
@@ -126,7 +132,7 @@ def askURL(url):
 
 def mian():
     #要爬取的评论首页
-    baseurl = "https://movie.douban.com/subject/3099221/comments?start=0&limit=20&status=P&sort=new_score"
+    baseurl = "https://movie.douban.com/subject/34825976/comments?start=0&limit=20&status=P&sort=new_score"
     # saveData(datalist=getData(baseurl), savepath="豆瓣电影Top250.xls")
     #设置数据库名称
     dbpath = "comment.db"
@@ -139,7 +145,7 @@ findTitle = re.compile(r'<span class="title">(.*)</span>')
 findScore = re.compile(r'<span class="rating_num" property="v:average">(.*)</span>')
 findJudgePeopleNum = re.compile(r'<span>(\d*)人评价</span>', re.S)
 findInq = re.compile(r'<span class="inq">(.*?)</span>', re.S)
-findCommentContent = re.compile(r'<span class="short">(.*)</span>')
+findCommentContent = re.compile(r'<span class="short">([\s\S]*)</span>')
 findName = re.compile(r'<a class="" href="(.*)">(.*)</a>')
 url_module=re.compile(r'comments\?(.*)&limit')
 
