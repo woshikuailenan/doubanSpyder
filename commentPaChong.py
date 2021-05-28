@@ -69,7 +69,8 @@ def getData(baseurl):
             #根据正则表达式获取评论
             comment = re.findall(findCommentContent, item)[0]
             comment=str(comment)
-            comment.replace("\n","")
+            comment=comment.replace("\n","")
+            comment=comment.replace(" ", "")
             # str1=re.findall(findCommentContent,item);
             #
 
